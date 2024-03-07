@@ -1,11 +1,17 @@
-import { useAppSelector } from "../redux-store"
-import { useCurrentLesson } from "../redux-store/slices/player"
+// import { useAppSelector } from "../redux-store"
+// import { useCurrentLesson } from "../redux-store/slices/player"
+import { useCurrentLessonZustand, useStore } from "../zustand-store"
 
 export function Header() {
-  const { currentModule, currentLesson } = useCurrentLesson()
-  const isCourseLoading = useAppSelector(state => state.player.isLoading)
+  // *** Using Redux ***
+  //const { currentModule, currentLesson } = useCurrentLesson()
+  // const isLoading = useAppSelector(state => state.player.isLoading)
+  
+  // *** Using Zustand ***
+  const { currentLesson, currentModule } = useCurrentLessonZustand()
+  const isLoading = useStore(state => state.isLoading)
 
-  if (isCourseLoading) {
+  if (isLoading) {
     return <h1 className="text-2xl text-zinc-50 font-bold animate-pulse">Carregando...</h1>
   }
 

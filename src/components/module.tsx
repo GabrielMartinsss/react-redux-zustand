@@ -2,8 +2,9 @@ import * as Collapsible from "@radix-ui/react-collapsible";
 
 import { ChevronDown } from "lucide-react";
 import { Lesson } from "./lesson";
-import { useAppDispatch, useAppSelector } from "../redux-store";
-import { play } from "../redux-store/slices/player";
+import { useStore } from "../zustand-store";
+// import { play } from "../redux-store/slices/player";
+// import { useAppDispatch, useAppSelector } from "../redux-store";
 
 export interface ModuleProps {
   moduleIndex: number
@@ -12,14 +13,25 @@ export interface ModuleProps {
 }
 
 export function Module({ moduleIndex ,title, amountOfLessons }: ModuleProps) {
-  const dispatch = useAppDispatch()
+  // *** Using Redux ***
+  // const dispatch = useAppDispatch()
 
-  const { currentLessonIndex, currentModuleIndex } = useAppSelector(state => {
-    const { currentModuleIndex, currentLessonIndex } = state.player
-    return { currentLessonIndex, currentModuleIndex }
+  // const { currentLessonIndex, currentModuleIndex } = useAppSelector(state => {
+  //   const { currentModuleIndex, currentLessonIndex } = state.player
+  //   return { currentLessonIndex, currentModuleIndex }
+  // })
+
+  // const lessons = useAppSelector(state => state.player.course?.modules[moduleIndex].lessons)
+  
+  // *** Using Zustand ***
+  const { currentLessonIndex, currentModuleIndex, lessons, play } = useStore(state => {
+    return {
+      currentLessonIndex: state.currentLessonIndex,
+      currentModuleIndex: state.currentModuleIndex,
+      lessons: state.course?.modules[moduleIndex].lessons,
+      play: state.play
+    }
   })
-
-  const lessons = useAppSelector(state => state.player.course?.modules[moduleIndex].lessons)
 
   return (
     <Collapsible.Root className="group" defaultOpen={moduleIndex === 0}>
@@ -48,7 +60,8 @@ export function Module({ moduleIndex ,title, amountOfLessons }: ModuleProps) {
                 title={lesson.title} 
                 duration={lesson.duration} 
                 isCurrent={isCurrent}
-                onPlay={() => dispatch(play([moduleIndex, lessonIndex]))}
+                onPlay={() => play([moduleIndex, lessonIndex])}
+                // onPlay={() => dispatch(play([moduleIndex, lessonIndex]))}
               /> 
             )
           })}
