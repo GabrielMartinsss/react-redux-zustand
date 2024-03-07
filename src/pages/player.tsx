@@ -2,8 +2,8 @@ import { MessageCircle } from "lucide-react";
 import { Header } from "../components/header";
 import { Video } from "../components/video";
 import { Module } from "../components/module";
-import { useAppDispatch, useAppSelector } from "../store";
-import { loadCourse, useCurrentLesson } from "../store/slices/player";
+import { useAppDispatch, useAppSelector } from "../redux-store";
+import { loadCourse, useCurrentLesson } from "../redux-store/slices/player";
 import { useEffect } from "react";
 import { SkeletonScreen } from "../components/skeleton-screen";
 

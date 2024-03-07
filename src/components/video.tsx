@@ -1,6 +1,6 @@
 import ReactPlayer from "react-player";
-import { next, useCurrentLesson } from "../store/slices/player";
-import { useAppDispatch, useAppSelector } from "../store";
+import { next, useCurrentLesson } from "../redux-store/slices/player";
+import { useAppDispatch, useAppSelector } from "../redux-store";
 import { Loader } from "lucide-react";
 
 export function Video() {
