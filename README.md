@@ -1,30 +1,31 @@
-# React + TypeScript + Vite
+<h1 align='center'>Redux and Zustand</h1>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 🧠 Project Presentation
+A simple video player project to address two state management technologies, Redux e Zustand.
 
-Currently, two official plugins are available:
+## 💻 Technologies
+<img src="https://skillicons.dev/icons?i=react,ts,tailwind,redux" />
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+NextJS, React, Typescript, Tailwindcss, Redux e Zustand.
 
-## Expanding the ESLint configuration
+## 🚀 Starting
+To reproduce the project locally, follow these steps:
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+#### Installation
+1. Clone this repository on your local machine:
 ```
+git clone https://github.com/GabrielMartinsss/react-redux-zustand.git
+```
+2. Navigate to the project directory:
+```
+cd react-redux-zustand
+```
+3. Install the dependencies:
+```
+npm install
+```
+#### Iniciando o projeto
+Run `npm run server` to bring the server up. Then run `npm run dev` and access http://localhost:5173 in your web browser to access the application.
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## Observation
+Currently the project is running with Zustand. To use with Redux, uncomment the code lines marked *** Redux *** and comment those marked *** Zustand ***
